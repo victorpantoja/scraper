@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 from scraper import __version__
 
 setup(
-    name=u'scraper',
+    name=u'webscraper-core',
     version=__version__,
     description=u"Just an easy way to get Facebook and Twitter Profiles",
     long_description=u'''
