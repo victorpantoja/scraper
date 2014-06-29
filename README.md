@@ -1,3 +1,5 @@
+[![Travis CI](https://travis-ci.org/victorpantoja/scraper.svg?branch=master)](victorpantoja/scraper)
+
 scraper
 =======
 
