@@ -24,6 +24,7 @@ class Profile(Collection, ProfileRepository):
         Gets a specific profile (i.e. Facebook Profile) and convert it into WebScraper Profile
         This method must be implemented by subclasses.
         '''
+        pass
 
 
 class Facebook(Profile):
@@ -39,21 +40,29 @@ class Facebook(Profile):
 
         response_dict = simplejson.loads(response.content)
 
-        #TODO: usar os atributos com self ou entai usar o __init__
-        profile = Profile()
-        profile._id = ObjectId()
-        profile.name = response_dict['first_name'] + " " + response_dict['last_name']
-        profile.username = response_dict['username']
-        profile.short_description = "A web developer at globo.com"
-        profile.image = "user profile image"
-        profile.popularity = 10
-        profile.updated = datetime.now()
+        self._id = ObjectId()
+        self.name = response_dict['first_name'] + " " + response_dict['last_name']
+        self.username = response_dict['username']
+        self.short_description = "A web developer at globo.com"
+        self.image = "user profile image"
+        self.popularity = 10
+        self.updated = datetime.now()
 
-        return profile
+        return self
 
 
 class Twitter(Profile):
-    pass
+
+    def as_profile_dict(self, **kwargs):
+        self._id = ObjectId()
+        self.name = "should be user name"
+        self.username = kwargs['username']
+        self.short_description = "A web developer at globo.com"
+        self.image = "twitter profile image"
+        self.popularity = 10
+        self.updated = datetime.now()
+
+        return self
 
 
 # simply add new classes and implement as_profile_dict to add new places where scrap from
