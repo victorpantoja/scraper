@@ -28,6 +28,6 @@ setup(
         "simplejson",
         "pybreaker==0.2.2",
         "pymongo==2.7.1",
-        "requests==2.3.0"
+        "requests==2.20.0"
     ]
 )
